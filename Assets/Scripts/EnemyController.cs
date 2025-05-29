@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     //~* === Use the comments in the code to complete this game === ~*//
 
     // === Create a float variable for the speed of the enemy === //
-    public float speed = 1.5f;
+    public float speed = 2.5f;
     
     // === Create a float variable for the change time of the enemy === //
     public float changetime = 2;

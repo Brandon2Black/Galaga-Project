@@ -36,9 +36,14 @@ public class ProjectileController : MonoBehaviour
     // === Create a method below to detect the collision between the bullet and other GameObjects ( HINT: use  ' OnCollisionEnter2D() ' )  === //
     // === In the method, Destroy the gameObject and Destroy the other gameObject === //
   
-  void OnCollisionEnter2D(Collision2D other)
+ void OnTriggerEnter2D(Collider2D other)
   {
+
+    if(other.gameObject.CompareTag("Projectile"))
+    {
      Destroy(gameObject);
+    }
+
   }
 
 
