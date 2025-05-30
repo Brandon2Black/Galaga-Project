@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,11 +20,14 @@ public class PlayerController : MonoBehaviour
     // === Create a public GameObject variable for the projectile prefab === //
     public GameObject projectilePrefab;
     
-    
+    public static TextMeshProUGUI scoreText;
+
+    public static int score = 0;
     void Start()
     {
         // === Write the code below to set your Rigidbody2D variable EQUAL to the Rigidbody2D component === //
             rigidbody2d = GetComponent<Rigidbody2D>();
+            scoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
