@@ -43,7 +43,18 @@ public class ProjectileController : MonoBehaviour
     {
      Destroy(gameObject);
     }
+  Destroy(gameObject);
+  }
 
+  void OnCollisionEnter2D(Collision2D other)
+  {
+    if(other.gameObject.CompareTag("Enemy"))
+    {
+      PlayerController.score += 1;
+      PlayerController.UpdateScore();
+      Destroy(other.gameObject);
+      Destroy(gameObject);
+    }
   }
 
 

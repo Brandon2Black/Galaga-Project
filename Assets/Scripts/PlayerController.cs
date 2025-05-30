@@ -51,6 +51,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    public static void UpdateScore()
+  {
+ scoreText.text = "Score: " + score.ToString();
+  }
     void Launch()
     {
         // === Add the code below to launch your projectile UP towards the enemy === //
