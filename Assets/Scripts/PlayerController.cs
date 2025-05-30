@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
        {
          GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.up * 1.25f, projectilePrefab.transform.rotation);
          ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
-         projectile.Launch(Vector2.up, 310);
+         projectile.Launch(Vector2.up, 410);
        }
     
 
