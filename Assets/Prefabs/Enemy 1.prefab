@@ -102,6 +102,7 @@ MonoBehaviour:
   changetime: 1
   timer: 2
   direction: 1
+  projectilePrefab: {fileID: 2369465283804337848, guid: 1e40e6de8148a4887bd5e745828454f2, type: 3}
 --- !u!50 &5215567055966886400
 Rigidbody2D:
   serializedVersion: 4

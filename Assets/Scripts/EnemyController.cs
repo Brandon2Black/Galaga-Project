@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
 
     // === Create an int varaible for the direction of the enemy and set it EQUAL to 1 === //
     public int direction = 1;
+     public GameObject projectilePrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,16 @@ public class EnemyController : MonoBehaviour
 
         // === Set the timer variable EQUAL to the change time variable below === //
        timer = changetime;
+            InvokeRepeating("SpawnBullet", 1.0f, 2.0f);
+        
     }
+
+    void SpawnBullet()
+{
+        GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.down * 1.25f, projectilePrefab.transform.rotation);
+         ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
+         projectile.Launch(Vector2.down, 410);
+}
 
     void Update()
     {

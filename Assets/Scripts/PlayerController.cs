@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -56,6 +57,11 @@ public class PlayerController : MonoBehaviour
   {
  scoreText.text = " " + score.ToString();
   }
+
+  public void RestartGame()
+{
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+}
     void Launch()
     {
         // === Add the code below to launch your projectile UP towards the enemy === //
