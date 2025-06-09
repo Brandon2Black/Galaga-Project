@@ -8,13 +8,14 @@ public class ProjectileController : MonoBehaviour
     
     // === Create a Rigidbody2D variable for the projectile/bullet === //
       Rigidbody2D rigidbody2d;
-
+      AudioSource audioSource; 
+    public AudioClip audioClipBullet;
 
     void Awake()
     {
         // === Write the code below to set your Rigidbody2D variable EQUAL to the Rigidbody2D component === //
         rigidbody2d = GetComponent<Rigidbody2D>();
-
+       audioSource = GetComponent<AudioSource>();
     }
     
     public void Launch(Vector2 direction, float force)
@@ -44,6 +45,7 @@ public class ProjectileController : MonoBehaviour
      Destroy(gameObject);
     }
   Destroy(gameObject);
+
   }
 
   void OnCollisionEnter2D(Collision2D other)
@@ -52,8 +54,13 @@ public class ProjectileController : MonoBehaviour
     {
       PlayerController.score += 1;
       PlayerController.UpdateScore();
+      
+
       Destroy(other.gameObject);
-      Destroy(gameObject);
+       GetComponent<Renderer>().enabled = false;
+      audioSource.PlayOneShot(audioClipBullet);
+      Destroy(gameObject, audioClipBullet.length);
+  
     }
   }
 

@@ -23,11 +23,18 @@ public class PlayerController : MonoBehaviour
     
     public static TextMeshProUGUI scoreText;
 
+       AudioSource audioSource;
+    public AudioClip audioClip;
+    public AudioClip audioClip2;
+    public AudioClip audioClip3;
+    public AudioClip audioClip4;
+
     public static int score = 0;
     void Start()
     {
         // === Write the code below to set your Rigidbody2D variable EQUAL to the Rigidbody2D component === //
             rigidbody2d = GetComponent<Rigidbody2D>();
+            audioSource = GetComponent<AudioSource>();
             scoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
     }
 
@@ -46,6 +53,7 @@ public class PlayerController : MonoBehaviour
          GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.up * 1.25f, projectilePrefab.transform.rotation);
          ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
          projectile.Launch(Vector2.up, 410);
+        audioSource.PlayOneShot(audioClip4);
        }
     
 
@@ -56,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public static void UpdateScore()
   {
  scoreText.text = " " + score.ToString();
+    // audioSource.PlayOneShot(audioClip2);
   }
 
   public void RestartGame()

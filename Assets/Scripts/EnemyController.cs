@@ -11,7 +11,8 @@ public class EnemyController : MonoBehaviour
     
     // === Create a float variable for the change time of the enemy === //
     public float changetime = 2;
-
+        AudioSource audioSource;
+    public AudioClip audioClip;
     // === Create a Rigidbody2D variable for the enemy === //
    Rigidbody2D rigidbody2d;
 
@@ -27,7 +28,7 @@ public class EnemyController : MonoBehaviour
     {
         // === Write the code below to set your Rigidbody2D variable EQUAL to the Rigidbody2D component === //
                 rigidbody2d = GetComponent<Rigidbody2D>();
-
+                audioSource = GetComponent<AudioSource>();
         // === Set the timer variable EQUAL to the change time variable below === //
        timer = changetime;
             InvokeRepeating("SpawnBullet", 1.0f, 2.0f);
@@ -39,6 +40,7 @@ public class EnemyController : MonoBehaviour
         GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.down * 1.25f, projectilePrefab.transform.rotation);
          ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
          projectile.Launch(Vector2.down, 410);
+                 audioSource.PlayOneShot(audioClip);
 }
 
     void Update()
